@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phạm Quốc Huy - Media Production</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --gold: #c29d3f;
+            --glass: rgba(255, 255, 255, 0.05);
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.8)), url('anh-nen-studio.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: #ffffff;
+            font-family: 'Montserrat', sans-serif;
+            line-height: 1.6;
+        }
+
+        /* Header & Nav */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 5%;
+            background: rgba(0,0,0,0.5);
+            backdrop-filter: blur(10px);
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 20px;
+            color: var(--gold);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .nav-links { display: flex; gap: 25px; list-style: none; }
+        .nav-links a { text-decoration: none; color: #bbb; font-size: 13px; transition: 0.3s; }
+        .nav-links a:hover { color: var(--gold); }
+
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            padding: 100px 20px 60px;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2rem, 8vw, 3.5rem);
+            color: var(--gold);
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+
+        .btn-main {
+            display: inline-block;
+            padding: 15px 40px;
+            background: var(--gold);
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            margin-top: 30px;
+            transition: 0.3s;
+        }
+
+        /* Services */
+        .services {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            padding: 50px 10%;
+            flex-wrap: wrap;
+        }
+
+        .service-card {
+            background: var(--glass);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(194, 157, 63, 0.2);
+            padding: 40px;
+            width: 350px;
+            text-align: center;
+            border-radius: 20px;
+            transition: 0.5s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--gold);
+        }
+
+        .service-icon { font-size: 40px; margin-bottom: 20px; display: block; }
+
+        /* Contact Section */
+        .contact-section {
+            text-align: center;
+            padding: 80px 20px;
+            background: rgba(0,0,0,0.3);
+        }
+
+        .contact-icons {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-top: 40px;
+        }
+
+        .icon-wrapper {
+            text-decoration: none;
+            color: #ccc;
+            font-size: 12px;
+            transition: 0.3s;
+        }
+
+        .icon-img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            border: 2px solid #333;
+            padding: 5px;
+            background: #111;
+            display: block;
+            margin: 0 auto 10px;
+            transition: 0.3s;
+            object-fit: cover;
+        }
+
+        .icon-wrapper:hover .icon-img {
+            border-color: var(--gold);
+            transform: scale(1.1);
+        }
+
+        .icon-wrapper:hover { color: var(--gold); }
+
+        footer {
+            text-align: center;
+            padding: 40px;
+            font-size: 12px;
+            color: #666;
+        }
+
+        @media (max-width: 768px) {
+            header { flex-direction: column; gap: 15px; }
+            .service-card { width: 100%; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="logo">HUYDJI MEDIA</div>
+    <ul class="nav-links">
+        <li><a href="#">TRANG CHỦ</a></li>
+        <li><a href="#services">DỊCH VỤ</a></li>
+        <li><a href="#contact">LIÊN HỆ</a></li>
+    </ul>
+</header>
+
+<main class="hero">
+    <h1>NÂNG TẦM VIDEO CỦA BẠN</h1>
+    <p>Chất lượng Cinematic trong từng khung hình</p>
+    <a href="#services" class="btn-main">XEM DỰ ÁN NỔI BẬT</a>
+</main>
+
+<section class="services" id="services">
+    <div class="service-card">
+        <span class="service-icon">🎬</span>
+        <h3>EDIT VIDEO CƠ BẢN</h3>
+        <p>Cắt ghép chuyên nghiệp, âm thanh chuẩn cho Vlog và mạng xã hội.</p>
+    </div>
+    <div class="service-card">
+        <span class="service-icon">🎨</span>
+        <h3>EDIT VIDEO CAO CẤP</h3>
+        <p>Chỉnh màu chuyên sâu, kỹ thuật hậu kỳ phức tạp cho sản phẩm nghệ thuật.</p>
+    </div>
+</section>
+
+<section class="contact-section" id="contact">
+    <h2>LIÊN HỆ TƯ VẤN</h2>
+    <div class="contact-icons">
+        <a href="https://www.tiktok.com/@huydji" class="icon-wrapper">
+            <img src="icontiktok.jpg" class="icon-img" alt="TikTok">
+            <p>TikTok</p>
+        </a>
+        <a href="tel:0337846894" class="icon-wrapper">
+            <img src="iconsms.jpg" class="icon-img" alt="Hotline">
+            <p>Hotline</p>
+        </a>
+        <a href="https://zalo.me/0337846894" class="icon-wrapper">
+            <img src="iconzalo.jpg" class="icon-img" alt="Zalo">
+            <p>Zalo</p>
+        </a>
+    </div>
+</section>
+
+<footer>
+    &copy; 2026 HUYDJI Media Production. All rights reserved.
+</footer>
+
+</body>
+</html>
