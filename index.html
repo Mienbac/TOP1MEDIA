@@ -1,82 +1,255 @@
 <!DOCTYPE html>
-<html lang="vi"> )
+<html lang="vi">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dịch Vụ Edit Video</title>
-</head>
-<style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f4;
-            color: #333;
-        header {
-            background-color: #333;
-            color: white;
-            text-align: center;
-            padding: 20px;
-        }
-        section {
-            padding: 30px;
-            margin: 40px auto;
-            max-width: 1000px;
-            background-color: white;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
-        }
-        h1 {
-            color: rgb(255, 255, 255);
-        }
-        h2 {}
-            color: #333;
-        ul {
-            list-style-type: none;
-            padding: 0;
-        }
-        li {
-            margin-bottom: 10px;
-        }
-        footer {
-            text-align: center;
-            padding: 10px;
-            background-color: #333;
-            color: white;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Phạm Quốc Huy - Media Production - Nâng Tầm Video Của Bạn</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      -gold: #c29d3f;
+      -glass: rgba(255, 255, 255, 0.05);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      margin: 0;
+      background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.8)), url('anh-nen-studio.jpg');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      color: #ffffff;
+      font-family: 'Montserrat', sans-serif;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 30px 50px;
+      background: rgba(0,0,0,0.3);
+      backdrop-filter: blur(10px);
+    }
+
+    .logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 22px;
+      color: var(-gold);
+      letter-spacing: 2px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 30px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: #bbb;
+      font-size: 14px;
+      transition: 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: var(-gold);
+    }
+
+    .hero {
+      text-align: center;
+      padding: 100px 20px 50px;
+    }
+
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 8vw, 4rem);
+      color: var(-gold);
+      margin-bottom: 20px;
+      text-transform: uppercase;
+    }
+
+    .hero p {
+      color: #ccc;
+      letter-spacing: 3px;
+      font-weight: 300;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .services {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      padding: 50px 10%;
+      flex-wrap: wrap;
+      perspective: 1000px;
+    }
+
+    .service-card {
+      background: var(-glass);
+      backdrop-filter: blur(15px);
+      border: 1px solid rgba(194, 157, 63, 0.3);
+      border-radius: 20px;
+      padding: 40px;
+      width: 350px;
+      text-align: center;
+      transition: 0.5s;
+      transform-style: preserve-3d;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+    }
+
+    .service-card:hover {
+      transform: translateY(-15px) rotateX(5deg);
+      border-color: var(-gold);
+      box-shadow: 0 30px 60px rgba(194, 157, 63, 0.2);
+    }
+
+    .service-icon {
+      font-size: 50px;
+      margin-bottom: 20px;
+      display: block;
+      filter: drop-shadow(0 10px var(-gold));
+    }
+
+    .service-card h3 {
+      font-family: 'Playfair Display', serif;
+      color: var(-gold);
+      margin-bottom: 15px;
+    }
+
+    .service-card p {
+      font-size: 14px;
+      color: #bbb;
+    }
+
+    .contact-section {
+      text-align: center;
+      padding: 80px 20px;
+    }
+
+    .contact-section h2 {
+      font-family: 'Playfair Display', serif;
+      color: var(-gold);
+      margin-bottom: 40px;
+    }
+
+    .contact-icons {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      margin-top: 30px;
+    }
+
+    .icon-wrapper {
+      text-decoration: none;
+      color: #888;
+      font-size: 12px;
+      transition: 0.3s;
+    }
+
+    .icon-img {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      border: 2px solid #333;
+      padding: 5px;
+      background: #111;
+      display: block;
+      margin: 0 auto 10px;
+      transition: 0.3s;
+    }
+
+    .icon-wrapper:hover .icon-img {
+      border-color: var(-gold);
+      transform: scale(1.1) rotate(10deg);
+      box-shadow: 0 0 20px rgba(194, 157, 63, 0.5);
+    }
+
+    .icon-wrapper:hover { color: var(-gold); }
+
+    .footer-address {
+      margin-top: 40px;
+      color: #666;
+      font-size: 14px;
+      text-align: center;
+    }
+
+    footer {
+      text-align: center;
+      padding: 40px;
+      color: #555;
+      font-size: 13px;
+    }
+
+    @media (max-width: 768px) {
+      header { padding: 20px; flex-direction: column; gap: 15px; }
+      .service-card { width: 100%; }
+    }
+  </style>
 </head>
 <body>
-<header> <img src="logo.jpg" alt="Logo Media Production" style="width: 150px; height: auto; display: block; margin: 0 auto 20px auto; border-radius: 10px;">
-        <h1>Dịch Vụ Edit Video Chuyên Nghiệp</h1>
-        <p>Chúng tôi cung cấp dịch vụ edit video chất lượng cao cho mọi nhu cầu của bạn.</p>
-    </header>
-<main>
-    <section id="gioi-thieu">
-        <h2>phạm quốc huy 
-        <p>Chào mừng bạn đến với dịch vụ edit video chuyên nghiệp của chúng tôi. Với đội ngũ kỹ thuật viên giàu kinh nghiệm và công nghệ tiên tiến, chúng tôi cam kết mang đến cho bạn những sản phẩm video chất lượng cao, sáng tạo và ấn tượng.</p>
-    </section>
 
-    <section id="dich-vu">
-        <h2>Các Dịch Vụ Chúng Tôi Cung Cấp</h2>
-        <ul>
-            <li><strong>Edit Video Cơ Bản:</strong> Cắt ghép, chỉnh sửa âm thanh, thêm hiệu ứng đơn giản.</li>
-            <li><strong>Edit Video Nâng Cao:</strong> Hậu kỳ chuyên nghiệp, màu sắc, chuyển động, hiệu ứng đặc biệt.</li>
-            <li><strong>Edit Video Quảng Cáo:</strong> Tạo video quảng cáo hấp dẫn cho doanh nghiệp.</li>
-            <li><strong>Edit Video Sự Kiện:</strong> Biên tập video đám cưới, sinh nhật, hội nghị.</li>
-            <li><strong>Dịch Vụ Tư Vấn:</strong> Tư vấn về ý tưởng video và quy trình sản xuất.</li>
-        </ul>
-    </section>
+  <header>
+    <div class="logo">PHAM QUOC HUY MEDIA PRODUCTION</div>
+    <ul class="nav-links">
+      <li><a href="#">TRANG CHỦ</a></li>
+      <li><a href="#services">DỊCH VỤ</a></li>
+      <li><a href="#portfolio">DỰ ÁN</a></li>
+      <li><a href="#about">VỀ CHÚNG TÔI</a></li>
+      <li><a href="#contact">LIÊN HỆ</a></li>
+  </header>
 
-    <section id="lien-he">
-        <h2>Liên Hệ</h2>
-        <p>Email: <a href="mailto:phamquochuy3102005@gmail.com">phamquochuy3102005@gmail.com</a></p>
-        <p>Điện thoại: <a href="tel:0337846894">0337-846-894</a>
-        <p>Địa chỉ: 14 Đào sư tích 1 Thành phố Bắc Giang</p>
-    </section>
+  <main class="hero">
+    <h1>NÂNG TẦM VIDEO CỦA BẠN</h1>
+    <p>Chất lượng Cinematic trong từng khung hình.</p>
+    <p>Dịch vụ Edit Video Chuyên Nghiệp • Color Grading • Hậu Kỳ Cinematic</p>
+    <br><br>
+    <a href="#" class="service-card h3" style="text-decoration:none; padding:15px 30px; font-size:16px;">XEM DỰ ÁN NỔI BẬT</a>
+  </main>
 
-    <footer>
-        <p>&copy; 2026 Dịch Vụ Edit Video Chuyên Nghiệp. Tất cả quyền được bảo lưu.</p>
-    </footer>
+  <section class="services" id="services">
+    <div class="service-card">
+      <span class="service-icon">🎥</span>
+      <h3>EDIT VIDEO CƠ BẢN</h3>
+      <p>Cắt ghép chuyên nghiệp, âm thanh chuẩn cho Vlog và mạng xã hội.</p>
+    </div>
+
+    <div class="service-card">
+      <span class="service-icon">🎨</span>
+      <h3>EDIT VIDEO CAO CẤP</h3>
+      <p>Chỉnh màu chuyên sâu, kỹ thuật hậu kỳ phức tạp cho sản phẩm nghệ thuật.</p>
+    </div>
+  </section>
+
+  <section class="contact-section" id="contact">
+    <h2>LIÊN HỆ TƯ VẤN</h2>
+    
+    <div class="contact-icons">
+      <a href="https://www.tiktok.com/@huydjimini2" class="icon-wrapper" target="_blank">
+        <img src="icontitok.jpg" class="icon-img" alt="TikTok">
+        TikTok
+      </a>
+      <a href="tel:0337046894" class="icon-wrapper">
+        <img src="iconsns.jpg" class="icon-img" alt="Call">
+        Hotline
+      </a>
+      <a href="https://zalo.me/0337046894" class="icon-wrapper" target="_blank">
+        <img src="iconzalo.jpg" class="icon-img" alt="Zalo">
+        Zalo
+      </a>
+  </section>
+
+  <div class="footer-address">
+    <p>14 Đào Sư Tích, TP. Bắc Giang</p>
+  </div>
+
+  <footer>
+    &copy; 2026 PHẠM QUỐC HUY MEDIA PRODUCTION. ALL RIGHTS RESERVED.
+  </footer>
+
 </body>
 </html>
