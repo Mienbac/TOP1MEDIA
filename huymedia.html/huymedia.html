@@ -1,404 +1,639 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Phạm Quốc Huy - Cinematic Media Production</title>
-    
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
-    
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HUYDJI MEDIA | Cinematic Production</title>
 
-    <style>
-        :root {
-            --gold: #d4af37;
-            --gold-hover: #f1c40f;
-            --dark-bg: #0a0a0a;
-            --glass-bg: rgba(20, 20, 20, 0.6);
-        }
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
 
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+scroll-behavior:smooth;
+}
 
-        html {
-            scroll-behavior: smooth; 
-        }
+:root{
+--gold:#d4af37;
+--gold-light:#f1d77a;
+--dark:#080808;
+--card:#111111;
+}
 
-        body {
-            background-color: var(--dark-bg);
-            background-image: linear-gradient(to bottom, rgba(0,0,0,0.7), rgba(0,0,0,0.9)), url('anh-nen-studio.jpg');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-            color: #ffffff;
-            font-family: 'Montserrat', sans-serif;
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
+body{
+font-family:'Montserrat',sans-serif;
+background:#000;
+color:#fff;
+overflow-x:hidden;
+}
 
- 
-        header {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px 5%;
-            background: rgba(0, 0, 0, 0.8);
-            backdrop-filter: blur(15px);
-            z-index: 1000;
-            border-bottom: 1px solid rgba(255, 215, 0, 0.1);
-            transition: all 0.3s ease;
-        }
+body::before{
+content:"";
+position:fixed;
+width:100%;
+height:100%;
+background:
+linear-gradient(rgba(0,0,0,.82),rgba(0,0,0,.92)),
+url('images/media-bg.jpg') center/cover;
+z-index:-2;
+}
 
-        .logo {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.8rem;
-            color: var(--gold);
-            font-weight: 700;
-            letter-spacing: 2px;
-            cursor: pointer;
-        }
+header{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+padding:22px 8%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+background:rgba(0,0,0,.4);
+backdrop-filter:blur(20px);
+border-bottom:1px solid rgba(212,175,55,.12);
+z-index:999;
+transition:.4s;
+}
 
-        .nav-links {
-            list-style: none;
-            display: flex;
-            gap: 40px;
-        }
+.logo{
+font-size:32px;
+font-weight:800;
+color:var(--gold);
+letter-spacing:2px;
+}
 
-        .nav-links a {
-            color: #eee;
-            text-decoration: none;
-            font-size: 0.9rem;
-            font-weight: 500;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            position: relative;
-            transition: color 0.3s;
-        }
+nav{
+display:flex;
+gap:40px;
+}
 
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: -5px;
-            left: 0;
-            background-color: var(--gold);
-            transition: width 0.3s ease;
-        }
+nav a{
+text-decoration:none;
+color:#fff;
+font-size:15px;
+font-weight:500;
+transition:.3s;
+position:relative;
+}
 
-        .nav-links a:hover { color: var(--gold); }
-        .nav-links a:hover::after { width: 100%; }
+nav a:hover{
+color:var(--gold);
+}
 
-     
-        .hero-section {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            padding: 100px 20px 20px;
-        }
+nav a::after{
+content:'';
+position:absolute;
+width:0;
+height:2px;
+background:var(--gold);
+bottom:-6px;
+left:0;
+transition:.3s;
+}
 
-        .glass-panel {
-            background: var(--glass-bg);
-            padding: 60px 50px;
-            border-radius: 24px;
-            backdrop-filter: blur(20px);
-            border: 1px solid rgba(212, 175, 55, 0.2);
-            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
-            max-width: 850px;
-            width: 100%;
-        }
+nav a:hover::after{
+width:100%;
+}
 
-        
-        @keyframes float {
-            0% { transform: translateY(0px); }
-            50% { transform: translateY(-15px); }
-            100% { transform: translateY(0px); }
-        }
 
-        .avatar-img {
-            width: 160px;
-            height: 160px;
-            object-fit: cover;
-            border-radius: 50%;
-            border: 4px solid var(--gold);
-            margin-bottom: 25px;
-            box-shadow: 0 0 30px rgba(212, 175, 55, 0.3);
-            animation: float 4s ease-in-out infinite;
-        }
+.hero{
+min-height:100vh;
+display:flex;
+align-items:center;
+justify-content:space-between;
+padding:0 8%;
+position:relative;
+gap:50px;
+}
 
-        .hero-title {
-            font-family: 'Playfair Display', serif;
-            color: var(--gold);
-            font-size: 4rem;
-            margin: 0 0 10px 0;
-            text-shadow: 0 4px 15px rgba(0,0,0,0.8);
-            line-height: 1.2;
-        }
+.hero-content{
+max-width:650px;
+z-index:2;
+}
 
-        .hero-subtitle {
-            font-size: 1.1rem;
-            letter-spacing: 4px;
-            text-transform: uppercase;
-            margin-bottom: 40px;
-            color: #ccc;
-            font-weight: 300;
-        }
+.hero-sub{
+font-size:14px;
+letter-spacing:5px;
+text-transform:uppercase;
+color:var(--gold);
+margin-bottom:15px;
+}
 
-        .btn-gold {
-            display: inline-block;
-            background: linear-gradient(45deg, var(--gold), #e5c158);
-            color: #000;
-            padding: 18px 45px;
-            text-decoration: none;
-            font-weight: 700;
-            border-radius: 50px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            transition: all 0.4s ease;
-            box-shadow: 0 10px 25px rgba(212, 175, 55, 0.4);
-        }
+.hero h1{
+font-size:78px;
+font-weight:800;
+line-height:1.05;
+margin-bottom:20px;
+}
 
-        .btn-gold:hover {
-            transform: translateY(-5px) scale(1.05);
-            box-shadow: 0 15px 35px rgba(212, 175, 55, 0.6);
-            background: linear-gradient(45deg, var(--gold-hover), #f1c40f);
-        }
+.hero p{
+font-size:18px;
+line-height:1.9;
+color:#c9c9c9;
+margin-bottom:40px;
+max-width:600px;
+}
 
-       
-        .section-title {
-            text-align: center;
-            font-family: 'Playfair Display', serif;
-            font-size: 2.5rem;
-            color: #fff;
-            margin-bottom: 60px;
-        }
-        .section-title span { color: var(--gold); }
+.hero-buttons{
+display:flex;
+gap:20px;
+flex-wrap:wrap;
+}
 
-        .services-section {
-            padding: 100px 5%;
-            background: rgba(10, 10, 10, 0.95);
-        }
+.btn{
+padding:18px 38px;
+border-radius:60px;
+text-decoration:none;
+font-weight:700;
+transition:.4s;
+}
 
-        .service-grid {
-            display: flex;
-            justify-content: center;
-            gap: 40px;
-            flex-wrap: wrap;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
+.btn-primary{
+background:linear-gradient(45deg,var(--gold),#f4cf58);
+color:#000;
+box-shadow:0 10px 30px rgba(212,175,55,.3);
+}
 
-        .service-card {
-            background: linear-gradient(145deg, #1a1a1a, #111);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            padding: 50px 30px;
-            border-radius: 20px;
-            text-align: center;
-            width: 350px;
-            transition: all 0.4s ease;
-            position: relative;
-            overflow: hidden;
-        }
+.btn-primary:hover{
+transform:translateY(-6px);
+}
 
-        .service-card::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; width: 100%; height: 3px;
-            background: var(--gold);
-            transform: scaleX(0);
-            transition: transform 0.4s ease;
-        }
+.btn-outline{
+border:1px solid rgba(255,255,255,.2);
+color:#fff;
+background:rgba(255,255,255,.05);
+backdrop-filter:blur(10px);
+}
 
-        .service-card:hover {
-            transform: translateY(-15px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.8);
-            border-color: rgba(212, 175, 55, 0.3);
-        }
+.hero-image{
+width:460px;
+height:620px;
+border-radius:30px;
+overflow:hidden;
+border:1px solid rgba(212,175,55,.2);
+box-shadow:0 20px 60px rgba(0,0,0,.8);
+position:relative;
+}
 
-        .service-card:hover::before { transform: scaleX(1); }
+.hero-image img{
+width:100%;
+height:100%;
+object-fit:cover;
+}
 
-        .service-icon {
-            font-size: 4rem;
-            display: inline-block;
-            margin-bottom: 25px;
-            filter: drop-shadow(0 0 10px rgba(212, 175, 55, 0.4));
-        }
 
-        .service-card h3 {
-            color: #fff;
-            font-size: 1.5rem;
-            margin-bottom: 15px;
-            font-family: 'Playfair Display', serif;
-        }
+section{
+padding:120px 8%;
+}
 
-        .service-card p {
-            color: #aaa;
-            font-size: 0.95rem;
-            line-height: 1.8;
-        }
+.section-title{
+text-align:center;
+margin-bottom:70px;
+}
 
-        .contact-section {
-            padding: 100px 20px;
-            background: url('anh-nen-studio.jpg') center/cover fixed;
-            position: relative;
-            text-align: center;
-        }
-        
-        .contact-overlay {
-            position: absolute;
-            top: 0; left: 0; right: 0; bottom: 0;
-            background: rgba(0, 0, 0, 0.85);
-            backdrop-filter: blur(5px);
-        }
+.section-title h2{
+font-size:50px;
+margin-bottom:15px;
+font-family:'Playfair Display',serif;
+}
 
-        .contact-content {
-            position: relative;
-            z-index: 1;
-        }
+.section-title span{
+color:var(--gold);
+}
 
-        .contact-icons {
-            display: flex;
-            justify-content: center;
-            gap: 60px;
-            margin-top: 50px;
-            flex-wrap: wrap;
-        }
+.section-title p{
+color:#999;
+font-size:17px;
+}
 
-        .icon-wrapper {
-            text-decoration: none;
-            color: #fff;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            transition: all 0.3s;
-        }
 
-        .icon-wrapper:hover {
-            transform: translateY(-10px);
-        }
+.about{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:50px;
+align-items:center;
+}
 
-        .icon-img {
-            width: 70px;
-            height: 70px;
-            border-radius: 20px;
-            margin-bottom: 15px;
-            object-fit: cover;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.5);
-            transition: box-shadow 0.3s;
-        }
+.about-image{
+height:600px;
+border-radius:28px;
+overflow:hidden;
+box-shadow:0 20px 50px rgba(0,0,0,.5);
+}
 
-        .icon-wrapper:hover .icon-img {
-            box-shadow: 0 15px 30px rgba(212, 175, 55, 0.5);
-            border: 2px solid var(--gold);
-        }
+.about-image img{
+width:100%;
+height:100%;
+object-fit:cover;
+}
 
-        .icon-wrapper p {
-            font-weight: 600;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            font-size: 0.9rem;
-        }
+.about-text h3{
+font-size:42px;
+margin-bottom:20px;
+}
 
- 
-        footer {
-            text-align: center;
-            padding: 30px;
-            background: #050505;
-            font-size: 0.9rem;
-            color: #666;
-            border-top: 1px solid rgba(255,255,255,0.05);
-        }
+.about-text p{
+font-size:17px;
+line-height:2;
+color:#bdbdbd;
+margin-bottom:20px;
+}
 
-      
-        @media (max-width: 768px) {
-            .nav-links { display: none; }
-            .hero-title { font-size: 2.8rem; }
-            .glass-panel { padding: 40px 20px; }
-            .contact-icons { gap: 30px; }
-        }
-    </style>
+
+.services-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:30px;
+}
+
+.card{
+background:rgba(255,255,255,.04);
+border:1px solid rgba(255,255,255,.06);
+padding:45px 35px;
+border-radius:30px;
+backdrop-filter:blur(15px);
+transition:.4s;
+}
+
+.card:hover{
+transform:translateY(-12px);
+border-color:rgba(212,175,55,.4);
+box-shadow:0 20px 50px rgba(0,0,0,.5);
+}
+
+.card h3{
+margin:20px 0;
+font-size:25px;
+}
+
+.card p{
+line-height:1.9;
+color:#aaa;
+}
+
+/* PORTFOLIO */
+
+.portfolio-grid{
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:25px;
+}
+
+.portfolio-item{
+height:380px;
+overflow:hidden;
+border-radius:30px;
+position:relative;
+cursor:pointer;
+}
+
+.portfolio-item img{
+width:100%;
+height:100%;
+object-fit:cover;
+transition:1s;
+}
+
+.portfolio-item:hover img{
+transform:scale(1.1);
+}
+
+.overlay{
+position:absolute;
+bottom:0;
+width:100%;
+padding:30px;
+background:linear-gradient(transparent,rgba(0,0,0,.95));
+}
+
+.overlay h4{
+font-size:26px;
+}
+
+.overlay p{
+color:#ddd;
+margin-top:8px;
+}
+    /* ACHIEVEMENT */
+
+.stats{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:30px;
+margin-top:70px;
+}
+
+.stat-box{
+background:rgba(255,255,255,.03);
+padding:50px;
+border-radius:28px;
+text-align:center;
+border:1px solid rgba(255,255,255,.08);
+}
+
+.stat-box h3{
+font-size:50px;
+color:var(--gold);
+margin-bottom:10px;
+}
+
+.stat-box p{
+color:#aaa;
+}
+
+
+.contact{
+position:relative;
+text-align:center;
+padding:140px 8%;
+}
+
+.contact::before{
+content:'';
+position:absolute;
+inset:0;
+background:
+linear-gradient(rgba(0,0,0,.82),rgba(0,0,0,.92)),
+url('images/media-bg.jpg') center/cover fixed;
+z-index:-1;
+}
+
+.contact-buttons{
+display:flex;
+justify-content:center;
+gap:20px;
+flex-wrap:wrap;
+margin-top:40px;
+}
+
+.contact-btn{
+padding:18px 35px;
+border-radius:60px;
+background:rgba(255,255,255,.06);
+border:1px solid rgba(255,255,255,.1);
+color:#fff;
+text-decoration:none;
+font-weight:700;
+transition:.4s;
+}
+
+.contact-btn:hover{
+background:var(--gold);
+color:#000;
+transform:translateY(-8px);
+}
+
+
+footer{
+padding:35px;
+text-align:center;
+background:#050505;
+color:#777;
+border-top:1px solid rgba(255,255,255,.08);
+}
+
+
+@media(max-width:991px){
+
+.hero{
+flex-direction:column;
+padding-top:150px;
+text-align:center;
+}
+
+.hero h1{
+font-size:50px;
+}
+
+.hero-image{
+width:100%;
+height:500px;
+}
+
+.about{
+grid-template-columns:1fr;
+}
+
+.portfolio-grid{
+grid-template-columns:1fr;
+}
+
+.stats{
+grid-template-columns:1fr;
+}
+
+nav{
+display:none;
+}
+
+.section-title h2{
+font-size:38px;
+}
+}
+
+</style>
 </head>
+
 <body>
 
 <header>
-    <div class="logo">HUYDJI MEDIA</div>
-    <ul class="nav-links">
-        <li><a href="#">Trang Chủ</a></li>
-        <li><a href="#services">Dịch Vụ</a></li>
-        <li><a href="#contact">Liên Hệ</a></li>
-    </ul>
+<div class="logo">HUYDJI MEDIA</div>
+
+<nav>
+<a href="#">Trang Chủ</a>
+<a href="#about">Giới Thiệu</a>
+<a href="#services">Dịch Vụ</a>
+<a href="#portfolio">Dự Án</a>
+<a href="#contact">Liên Hệ</a>
+</nav>
 </header>
 
-<section class="hero-section">
-    <div class="glass-panel" data-aos="zoom-in" data-aos-duration="1200">
-        <img src="logo_phamquochuy.jpg" alt="Phạm Quốc Huy" class="avatar-img">
-        <h1 class="hero-title">PHẠM QUỐC HUY</h1>
-        <p class="hero-subtitle">Chuyên Gia Media & Kỹ xảo Điện ảnh</p>
-        <a href="#services" class="btn-gold">Khám Phá Dự Án</a>
-    </div>
+<section class="hero">
+
+<div class="hero-content">
+<div class="hero-sub">
+MEDIA PRODUCTION
+</div>
+
+<h1>
+HUYDJI<br>MEDIA
+</h1>
+
+<p>
+Wedding • Event • Flycam • Cinematic Production
+Đơn vị media chuyên nghiệp tại Bắc Ninh, tạo nên hình ảnh cinematic cao cấp cho thương hiệu, sự kiện và đám cưới.
+</p>
+
+<div class="hero-buttons">
+<a href="#portfolio" class="btn btn-primary">
+Xem Dự Án
+</a>
+
+<a href="#contact" class="btn btn-outline">
+Liên Hệ Ngay
+</a>
+</div>
+</div>
+
+<div class="hero-image">
+<img src="images/hero.jpg">
+</div>
+
 </section>
 
-<section class="services-section" id="services">
-    <h2 class="section-title" data-aos="fade-up">Giải Pháp <span>Hình Ảnh</span></h2>
-    <div class="service-grid">
-        <div class="service-card" data-aos="fade-up" data-aos-delay="100">
-            <span class="service-icon">🎬</span>
-            <h3>Edit Video Đa Nền Tảng</h3>
-            <p>Tối ưu hóa khung hình, nhịp điệu và âm thanh chuẩn xác cho các nền tảng TikTok, YouTube Shorts và Reels.</p>
-        </div>
-        <div class="service-card" data-aos="fade-up" data-aos-delay="200">
-            <span class="service-icon">🎨</span>
-            <h3>Color Grading Chuyên Sâu</h3>
-            <p>Xử lý màu sắc mang đậm tính điện ảnh (Cinematic), làm nổi bật cảm xúc và truyền tải đúng tinh thần thương hiệu.</p>
-        </div>
-        <div class="service-card" data-aos="fade-up" data-aos-delay="300">
-            <span class="service-icon">✨</span>
-            <h3>Kỹ Xảo & VFX</h3>
-            <p>Áp dụng các luồng công việc công nghệ tiên tiến để tạo ra các hiệu ứng hình ảnh sống động và mãn nhãn nhất.</p>
-        </div>
-    </div>
+<section id="about">
+
+<div class="section-title">
+<h2>Về <span>HUYDJI MEDIA</span></h2>
+<p>Media chuyên nghiệp • Hình ảnh cinematic cao cấp</p>
+</div>
+
+<div class="about">
+
+<div class="about-image">
+<img src="images/stage.jpg">
+</div>
+
+<div class="about-text">
+<h3>Top Media Wedding & Event Bắc Ninh</h3>
+
+<p>
+HUYDJI MEDIA chuyên sản xuất hình ảnh cinematic chuyên nghiệp trong lĩnh vực Wedding, Event, Flycam DJI và video truyền thông.
+</p>
+
+<p>
+Tập trung vào sự chỉn chu, sáng tạo và cảm xúc chân thật để mang tới những thước phim đẳng cấp premium.
+</p>
+</div>
+
+</div>
+
 </section>
 
-<section class="contact-section" id="contact">
-    <div class="contact-overlay"></div>
-    <div class="contact-content">
-        <h2 class="section-title" data-aos="fade-down">Kết Nối <span>Ngay</span></h2>
-        <div class="contact-icons">
-            <a href="https://www.tiktok.com/@huydjimini2" class="icon-wrapper" data-aos="zoom-in" data-aos-delay="100">
-                <img src="icontiktok.jpg" class="icon-img" alt="TikTok">
-                <p>TikTok</p>
-            </a>
-            <a href="tel:0337846894" class="icon-wrapper" data-aos="zoom-in" data-aos-delay="200">
-                <img src="iconsms.jpg" class="icon-img" alt="Hotline">
-                <p>Hotline</p>
-            </a>
-            <a href="https://zalo.me/0337846894" class="icon-wrapper" data-aos="zoom-in" data-aos-delay="300">
-                <img src="iconzalo.jpg" class="icon-img" alt="Zalo">
-                <p>Zalo</p>
-            </a>
-        </div>
-    </div>
+<section id="services">
+
+<div class="section-title">
+<h2>Dịch Vụ <span>Nổi Bật</span></h2>
+</div>
+
+<div class="services-grid">
+
+<div class="card">
+<h3>Wedding Media</h3>
+<p>Quay cưới cinematic sang trọng, cảm xúc và hiện đại.</p>
+</div>
+
+<div class="card">
+<h3>Event Production</h3>
+<p>Sản xuất media sự kiện chuyên nghiệp.</p>
+</div>
+
+<div class="card">
+<h3>Flycam DJI</h3>
+<p>Footage cinematic trên không chất lượng cao.</p>
+</div>
+
+<div class="card">
+<h3>Edit Video Viral</h3>
+<p>Video TikTok, Reels, Shorts chuẩn xu hướng.</p>
+</div>
+
+</div>
+
+</section>
+
+<section id="portfolio">
+
+<div class="section-title">
+<h2>Dự Án <span>Nổi Bật</span></h2>
+</div>
+
+<div class="portfolio-grid">
+
+<div class="portfolio-item">
+<img src="images/hero.jpg">
+<div class="overlay">
+<h4>Luxury Portrait</h4>
+<p>Fashion Media</p>
+</div>
+</div>
+
+<div class="portfolio-item">
+<img src="images/stage.jpg">
+<div class="overlay">
+<h4>Stage Production</h4>
+<p>Media Event</p>
+</div>
+</div>
+
+<div class="portfolio-item">
+<img src="images/wedding.jpg">
+<div class="overlay">
+<h4>Wedding Media</h4>
+<p>Premium Wedding</p>
+</div>
+</div>
+
+<div class="portfolio-item">
+<img src="images/avatar.png">
+<div class="overlay">
+<h4>Director</h4>
+<p>HUYDJI MEDIA</p>
+</div>
+</div>
+
+</div>
+
+<div class="stats">
+
+<div class="stat-box">
+<h3>100+</h3>
+<p>Dự Án</p>
+</div>
+
+<div class="stat-box">
+<h3>1000+</h3>
+<p>Khách Hàng</p>
+</div>
+
+<div class="stat-box">
+<h3>24/7</h3>
+<p>Hỗ Trợ</p>
+</div>
+
+</div>
+
+</section>
+
+<section class="contact" id="contact">
+
+<div class="section-title">
+<h2>Liên Hệ <span>Ngay</span></h2>
+<p>Kết nối HUYDJI MEDIA</p>
+</div>
+
+<div class="contact-buttons">
+
+<a href="https://www.tiktok.com/@huydjimini2" class="contact-btn">
+TikTok
+</a>
+
+<a href="https://zalo.me/0337846894" class="contact-btn">
+Zalo
+</a>
+
+<a href="tel:0337846894" class="contact-btn">
+Hotline
+</a>
+
+</div>
+
 </section>
 
 <footer>
-    &copy; 2026 HUYDJI Media Production. Kiến tạo giá trị hình ảnh.
+© 2026 HUYDJI MEDIA — Cinematic Production
 </footer>
-
-<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-<script>
-    AOS.init({
-        once: true, 
-        offset: 100 
-    });
-</script>
 
 </body>
 </html>
